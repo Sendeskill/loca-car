@@ -12,13 +12,3 @@ Lucas -
 Caio
 - Nos requisitos, faltou uma prioridade. Olhando para os requisitos, é possível perceber que você tem a visão detalhada do projeto, para corrigir os outros pontos acima.
 - Depois de definir melhor os micro serviços, faça o ajuste do texto de "mecanismos arquiteturais".
-
-06/02/22 - Reunião para gravação do video e finalização do documento.
-
-
-
-
-
-
-
-
