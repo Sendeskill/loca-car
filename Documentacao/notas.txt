@@ -5,8 +5,10 @@ Entrega 2 - Arquitetura e Prova de Conceito (PoC) da Aplicação Datas: B1 (15/0
 Entrega 3 - Desenvolvimento MVP Datas: C1 (15/06/22)
 
 Lucas - 
-- Na introdução, elabore mais seus objetivos. Pense em coisas relacionadas aos benefícios do sistema, e não em relação ao trabalho (esta visão já eliminaria o primeiro objetivo, e restaria somente 1). Pense em objetivos simples e precisos a respeito do produto proposto.
-- O seu cronograma também precisa ser mais detalhado. Está com uma visão muito macro e superficial do que você pretende fazer. Pense nas etapas, componentes do sistema, artefatos entregues, dentre outras coisas, e tente dividir mais.
+- Na introdução, elabore mais seus objetivos. Pense em coisas relacionadas aos benefícios do sistema, e não em relação ao trabalho (esta visão já eliminaria o primeiro objetivo, e restaria somente 1). Pense em objetivos simples e precisos a respeito do produto proposto. OK
+
+- O seu cronograma também precisa ser mais detalhado. Está com uma visão muito macro e superficial do que você pretende fazer. Pense nas etapas, componentes do sistema, artefatos entregues, dentre outras coisas, e tente dividir mais. OK
+
 - Nos micro serviços, novamente, falta detalhamento. Você menciona "macro serviços". Há muito mais dentro de algo relacionado ao "Processo de Locação" e "Cadastro de Veículos". Lembre-se do conceito de micro serviços. Nas suas restrições arquiteturais, você menciona esse conceito.
 
 Caio
