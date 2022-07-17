@@ -3,27 +3,35 @@
     public class VeiculoQueries
     {
         public const string LISTAR =
-         @"SELECT u.*
-            FROM  veiculo u";
+         @"SELECT v.*
+            FROM  Veiculo v";
 
         public const string OBTER =
-         @"SELECT   Id,
-                    Descricao
-           FROM  veiculo
+         @"SELECT   v.*
+           FROM  Veiculo v
            WHERE Id=@Id";
 
         public const string SALVAR =
-           @"INSERT INTO veiculo (Descricao)
-                        VALUES (@Descricao);";
+           @"INSERT INTO Veiculo (Descricao, Placa, AnoFabricacao, AnoModelo, 
+                                  Modelo, Marca, Cor, Observacao)
+                        VALUES (@Descricao, @Placa, @AnoFabricacao, @AnoModelo, 
+                                @Modelo, @Marca, @Cor, @Observacao);";
 
         public const string ATUALIZAR =
-          @"UPDATE veiculo
+          @"UPDATE Veiculo
                 SET
                      Descricao = @Descricao,
+                     Placa = @Placa,
+                     AnoFabricacao = @AnoFabricacao,
+                     AnoModelo = @AnoModelo,
+                     Modelo = @Modelo,
+                     Marca = @Marca,
+                     Cor = @Cor,
+                     Observacao = @Observacao
                 WHERE Id = @Id;";
 
         public const string DELETAR =
-            @"DELETE FROM veiculo
+            @"DELETE FROM Veiculo
                 WHERE Id = @Id;";
     }
 }

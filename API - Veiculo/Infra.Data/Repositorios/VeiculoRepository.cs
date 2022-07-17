@@ -29,6 +29,13 @@ namespace Infra.Data.Repositorios
         public async Task SalvarAsync(Veiculo veiculo)
         {
             param.Add("@Descricao", veiculo.Descricao);
+            param.Add("@Placa", veiculo.Placa);
+            param.Add("@AnoFabricacao", veiculo.AnoFabricacao);
+            param.Add("@AnoModelo", veiculo.AnoModelo);
+            param.Add("@Modelo", veiculo.Modelo);
+            param.Add("@Marca", veiculo.Marca);
+            param.Add("@Cor", veiculo.Cor);
+            param.Add("@Observacao", veiculo.Observacao);
 
             await context.Connection.ExecuteScalarAsync(VeiculoQueries.SALVAR, param);
         }
@@ -36,7 +43,12 @@ namespace Infra.Data.Repositorios
         public async Task AtualizarAsync(Veiculo veiculo)
         {
             param.Add("@Id", veiculo.Id);
-            param.Add("@Descricao", veiculo.Descricao);
+            param.Add("@AnoFabricacao", veiculo.AnoFabricacao);
+            param.Add("@AnoModelo", veiculo.AnoModelo);
+            param.Add("@Modelo", veiculo.Modelo);
+            param.Add("@Marca", veiculo.Marca);
+            param.Add("@Cor", veiculo.Cor);
+            param.Add("@Observacao", veiculo.Observacao);
 
             await context.Connection.ExecuteScalarAsync(VeiculoQueries.ATUALIZAR, param);
         }

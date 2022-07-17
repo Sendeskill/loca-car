@@ -23,7 +23,10 @@ namespace Dominio.Handlers
             if (!command.EhValido())
                 return new CommandResult(false, "Não foi possível salvar Veículo", command.Notifications);
 
-            var salvarFilial = new Veiculo(command.Descricao);
+            var salvarFilial = new Veiculo(command.Descricao, command.Placa, 
+                                           command.AnoFabricacao, command.AnoModelo, 
+                                           command.Modelo, command.Marca, 
+                                           command.Cor, command.Observacao);
 
             await repository.SalvarAsync(salvarFilial);
             return new CommandResult(true, "Veículo inserido com sucesso", command);
@@ -35,8 +38,10 @@ namespace Dominio.Handlers
             if (!command.EhValido())
                 return new CommandResult(false, "Não foi possível atualizar Veículo", command.Notifications);
 
-            var salvarFilial = new Veiculo(command.Id,
-                                            command.Descricao);
+            var salvarFilial = new Veiculo(command.Descricao, command.Placa, 
+                                           command.AnoFabricacao, command.AnoModelo, 
+                                           command.Modelo, command.Marca, 
+                                           command.Cor, command.Observacao);
 
             await repository.AtualizarAsync(salvarFilial);
             return new CommandResult(true, "Veículo atualizado com sucesso", command);
