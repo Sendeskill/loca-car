@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace Dominio.Handlers
 {
     public class UsuarioHandler : ICommandHandler<SalvarUsuarioCommand>,
-                                 ICommandHandler<AtualizarUsuarioCommand>,
-                                 ICommandHandler<ApagarUsuarioCommand>
+                                  ICommandHandler<AtualizarUsuarioCommand>,
+                                  ICommandHandler<ApagarUsuarioCommand>,
+                                  ICommandHandler<LogarUsuarioCommand>
     {
         private readonly IUsuarioRepository repository;
 
@@ -23,9 +24,15 @@ namespace Dominio.Handlers
             if (!command.EhValido())
                 return new CommandResult(false, "Não foi possível salvar Usuário", command.Notifications);
 
-            var salvarFilial = new Usuario(command.Nome,command.Email);
+            var usuario = new Usuario(command.Nome,
+                                           command.Tipo,
+                                           command.Email,
+                                           command.Senha,
+                                           command.Cpf,
+                                           command.Logradouro,
+                                           command.Cidade);
 
-            await repository.SalvarAsync(salvarFilial);
+            await repository.SalvarAsync(usuario);
             return new CommandResult(true, "Usuário inserido com sucesso", command);
 
         }
@@ -36,8 +43,13 @@ namespace Dominio.Handlers
                 return new CommandResult(false, "Não foi possível atualizar Usuário", command.Notifications);
 
             var salvarFilial = new Usuario(command.Id,
-                                            command.Nome,
-                                            command.Email);
+                                           command.Tipo,
+                                           command.Nome,
+                                           command.Email,
+                                           command.Senha,
+                                           command.Cpf,
+                                           command.Logradouro,
+                                           command.Cidade);
 
             await repository.AtualizarAsync(salvarFilial);
             return new CommandResult(true, "Usuário atualizado com sucesso", command);
@@ -49,6 +61,16 @@ namespace Dominio.Handlers
                 return new CommandResult(false, "Não foi possivel apagar Usuário", command.Notifications);
             await repository.DeletarAsync(command.Id);
             return new CommandResult(true, "Usuário deletado com sucesso", command);
+        }
+
+        public async Task<ICommandResult> HandleAsync(LogarUsuarioCommand command)
+        {
+            if (!command.EhValido())
+                return new CommandResult(false, "Não foi logar Usuário", command.Notifications);
+            
+            var usuario = await repository.LogarAsync(command.Email, command.Senha);
+            return usuario == null ? new CommandResult(false, "Usuário não encontrado", usuario) :
+                                     new CommandResult(true, "Usuário logado com sucesso", usuario);
         }
     }
 }

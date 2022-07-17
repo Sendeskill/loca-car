@@ -11,6 +11,8 @@ namespace Dominio.Repositorios
 
         Task<UsuarioQueryResult> ObterAsync(int id);
 
+        Task<UsuarioQueryResult> LogarAsync(string email, string senha);
+
         Task SalvarAsync(Usuario usuario);
 
         Task AtualizarAsync(Usuario usuario);

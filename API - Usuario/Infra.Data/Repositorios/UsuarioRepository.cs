@@ -29,7 +29,12 @@ namespace Infra.Data.Repositorios
         public async Task SalvarAsync(Usuario usuario)
         {
             param.Add("@Nome", usuario.Nome);
+            param.Add("@Tipo", usuario.Tipo);
             param.Add("@Email", usuario.Email);
+            param.Add("@Senha", usuario.Senha);
+            param.Add("@Cpf", usuario.Email);
+            param.Add("@Cidade", usuario.Cidade);
+            param.Add("@Logradouro", usuario.Logradouro);
 
             await context.Connection.ExecuteScalarAsync(UsuarioQueries.SALVAR, param);
         }
@@ -37,10 +42,25 @@ namespace Infra.Data.Repositorios
         public async Task AtualizarAsync(Usuario usuario)
         {
             param.Add("@Id", usuario.Id);
+            param.Add("@Tipo", usuario.Tipo);
             param.Add("@Nome", usuario.Nome);
             param.Add("@Email", usuario.Email);
+            param.Add("@Senha", usuario.Senha);
+            param.Add("@Cpf", usuario.Email);
+            param.Add("@Cidade", usuario.Cidade);
+            param.Add("@Logradouro", usuario.Logradouro);
 
             await context.Connection.ExecuteScalarAsync(UsuarioQueries.ATUALIZAR, param);
+        }
+        
+        public async Task<UsuarioQueryResult> LogarAsync(string email, string senha)
+        {
+            param.Add("@Email", email);
+            param.Add("@Senha", senha);
+
+            return await context.Connection.QueryFirstOrDefaultAsync<UsuarioQueryResult>(UsuarioQueries.LOGAR, param);
+
+            return usuario;
         }
 
         public async Task DeletarAsync(int id) =>

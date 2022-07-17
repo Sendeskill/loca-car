@@ -37,6 +37,12 @@ namespace API_Usuario.Controllers
             return await handler.HandleAsync(command);
         }
 
+        [HttpPost("login")]
+        public async Task<ICommandResult> LogarAsync([FromBody] LogarUsuarioCommand command)
+        {
+            return await handler.HandleAsync(command);
+        }
+
         [HttpPut]
         public async Task<ICommandResult> PutAsync([FromBody] AtualizarUsuarioCommand command)
         {
