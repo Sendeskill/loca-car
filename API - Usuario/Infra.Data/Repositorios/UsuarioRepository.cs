@@ -59,8 +59,6 @@ namespace Infra.Data.Repositorios
             param.Add("@Senha", senha);
 
             return await context.Connection.QueryFirstOrDefaultAsync<UsuarioQueryResult>(UsuarioQueries.LOGAR, param);
-
-            return usuario;
         }
 
         public async Task DeletarAsync(int id) =>
