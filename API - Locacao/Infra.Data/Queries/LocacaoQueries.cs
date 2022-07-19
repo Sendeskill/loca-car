@@ -3,27 +3,30 @@
     public class LocacaoQueries
     {
         public const string LISTAR =
-         @"SELECT u.*
-            FROM  locacao u";
+         @"SELECT l.*
+            FROM  Locacao l";
 
         public const string OBTER =
-         @"SELECT   Id,
-                    Descricao
-           FROM  locacao
+         @"SELECT   l.*
+           FROM  locacao l
            WHERE Id=@Id";
 
         public const string SALVAR =
-           @"INSERT INTO locacao (Descricao)
-                        VALUES (@Descricao);";
+           @"INSERT INTO locacao (Descricao, UsuarioId, VeiculoId, DataLocacao, DataDevolucao)
+                    VALUES (@Descricao, @UsuarioId, @VeiculoId, @DataLocacao, @DataDevolucao);";
 
         public const string ATUALIZAR =
-          @"UPDATE locacao
+          @"UPDATE Locacao
                 SET
-                     Descricao = @Descricao
+                     Descricao     = @Descricao,
+                     UsuarioId     = @UsuarioId,
+                     VeiculoId     = @VeiculoId,
+                     DataLocacao   = @DataLocacao,
+                     DataDevolucao = @DataDevolucao
                 WHERE Id = @Id;";
 
         public const string DELETAR =
-            @"DELETE FROM locacao
+            @"DELETE FROM Locacao
                 WHERE Id = @Id;";
     }
 }

@@ -23,9 +23,11 @@ namespace Dominio.Handlers
             if (!command.EhValido())
                 return new CommandResult(false, "Não foi possível salvar Locação", command.Notifications);
 
-            var salvarFilial = new Locacao(command.Descricao);
+            var locacao = new Locacao(command.Descricao, command.UsuarioId,
+                                      command.VeiculoId, command.DataLocacao,
+                                      command.DataDevolucao);
 
-            await repository.SalvarAsync(salvarFilial);
+            await repository.SalvarAsync(locacao);
             return new CommandResult(true, "Locação inserido com sucesso", command);
 
         }
@@ -35,10 +37,11 @@ namespace Dominio.Handlers
             if (!command.EhValido())
                 return new CommandResult(false, "Não foi possível atualizar Locação", command.Notifications);
 
-            var salvarFilial = new Locacao(command.Id,
-                                            command.Descricao);
+            var locacao = new Locacao(command.Id, command.Descricao,
+                                      command.UsuarioId, command.VeiculoId,
+                                      command.DataLocacao, command.DataDevolucao);
 
-            await repository.AtualizarAsync(salvarFilial);
+            await repository.AtualizarAsync(locacao);
             return new CommandResult(true, "Locação atualizado com sucesso", command);
         }
 

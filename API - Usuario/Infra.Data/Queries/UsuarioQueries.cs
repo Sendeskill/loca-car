@@ -9,7 +9,11 @@
         public const string OBTER =
          @"SELECT   Id,
                     Nome,
-                    Email
+                    Email,
+                    Tipo,
+                    Cpf,
+                    Logradouro,
+                    Cidade
            FROM  Usuario
            WHERE Id=@Id";
 
@@ -19,14 +23,13 @@
 
         public const string ATUALIZAR =
           @"UPDATE usuario
-                SET
-                     Nome = @Nome,
-                     Email = @Email,
-                     Tipo = @Tipo,
-                     Senha = @Senha,
-                     Cpf = @Cpf,
+                SET  Nome       = @Nome,
+                     Email      = @Email,
+                     Tipo       = @Tipo,
+                     Senha      = @Senha,
+                     Cpf        = @Cpf,
                      Logradouro = @Logradouro,
-                     Cidade = @Cidade
+                     Cidade     = @Cidade
                 WHERE Id = @Id;";
 
         public const string DELETAR =

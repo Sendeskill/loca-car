@@ -29,6 +29,10 @@ namespace Infra.Data.Repositorios
         public async Task SalvarAsync(Locacao locacao)
         {
             param.Add("@Descricao", locacao.Descricao);
+            param.Add("@UsuarioId", locacao.UsuarioId);
+            param.Add("@VeiculoId", locacao.VeiculoId);
+            param.Add("@DataLocacao", locacao.DataLocacao);
+            param.Add("@DataDevolucao", locacao.DataDevolucao);
 
             await context.Connection.ExecuteScalarAsync(LocacaoQueries.SALVAR, param);
         }

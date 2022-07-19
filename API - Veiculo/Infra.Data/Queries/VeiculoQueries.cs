@@ -20,16 +20,16 @@
         public const string ATUALIZAR =
           @"UPDATE Veiculo
                 SET
-                     Descricao = @Descricao,
-                     Placa = @Placa,
+                     Descricao     = @Descricao,
+                     Placa         = @Placa,
                      AnoFabricacao = @AnoFabricacao,
-                     AnoModelo = @AnoModelo,
-                     Modelo = @Modelo,
-                     Marca = @Marca,
-                     Cor = @Cor,
-                     Observacao = @Observacao,
-                     Status = @Status,
-                     Imagem = @Imagem
+                     AnoModelo     = @AnoModelo,
+                     Modelo        = @Modelo,
+                     Marca         = @Marca,
+                     Cor           = @Cor,
+                     Observacao    = @Observacao,
+                     Status        = @Status,
+                     Imagem        = @Imagem
                 WHERE Id = @Id;";
 
         public const string DELETAR =
