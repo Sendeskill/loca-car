@@ -1,0 +1,94 @@
+//
+// authentication.scss
+//
+
+.auth-bg {
+  background-image: url('../../images/banner/auth-bg.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  .bg-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    z-index: -1;
+    background-color: #292626;
+  }
+
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.auth-content {
+  height: 100vh;
+  display: flex;
+  background-color: #ffffff;
+}
+
+.auth-form-group {
+  position: relative;
+  .form-control {
+    height: 60px;
+    padding-left: 60px;
+    border-radius: 5px;
+  }
+
+  label {
+    position: absolute;
+    top: 7px;
+    left: 60px;
+  }
+
+  .auth-page-icon {
+    position: absolute;
+    top: 30px;
+    transform: translateY(-50%);
+    left: 19px;
+    font-size: 24px;
+    color: #6c757d;
+  }
+}
+.auth-control::-webkit-input-placeholder {
+  font-size: 14px;
+  line-height: 3;
+}
+.home-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  z-index: 9;
+}
+.auth-user-name {
+  font-size: 19px;
+  color: #403866;
+  line-height: 1.2;
+  text-align: center;
+  display: block;
+  font-weight: 600;
+}
+.social-icon {
+  text-align: center;
+  li a {
+    color: #3c4858;
+    border: 1px solid #3c4858;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    text-align: center;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+    &:hover {
+      background-color: #2f55d4;
+      border-color: #2f55d4 !important;
+      color: #ffffff !important;
+    }
+  }
+}
