@@ -1,0 +1,675 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Dashboard 3</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item active">Dashboard 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5>Todays Income</h5>
+                <p class="text-muted">Income For Today</p>
+              </div>
+              <h3 class="text-info">$170</h3>
+            </div>
+            <div class="card-content mt-2">
+              <div class="progress skill-progress m-b-5 w-100">
+                <div class="progress-bar l-bg-purple width-per-45" role="progressbar" aria-valuenow="45"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+              <p class="text-muted mb-0">Change</p>
+              <p class="text-muted mb-0">75%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5>Total Revenue</h5>
+                <p class="text-muted">Total Income</p>
+              </div>
+              <h3 class="text-success">$120</h3>
+            </div>
+            <div class="card-content mt-2">
+              <div class="progress skill-progress m-b-5 w-100">
+                <div class="progress-bar l-bg-orange width-per-45" role="progressbar" aria-valuenow="45"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+              <p class="text-muted mb-0">Change</p>
+              <p class="text-muted mb-0">25%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5>New Orders</h5>
+                <p class="text-muted">Fresh New Order</p>
+              </div>
+              <h3 class="text-danger">15</h3>
+            </div>
+            <div class="card-content mt-2">
+              <div class="progress skill-progress m-b-5 w-100">
+                <div class="progress-bar l-bg-cyan width-per-45" role="progressbar" aria-valuenow="45" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="text-muted mb-0">Change</p>
+              <p class="text-muted mb-0">50%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5>New Users</h5>
+                <p class="text-muted">Joined New User</p>
+              </div>
+              <h3 class="text-secondary">12</h3>
+            </div>
+            <div class="card-content mt-2">
+              <div class="progress skill-progress m-b-5 w-100">
+                <div class="progress-bar l-bg-red width-per-45" role="progressbar" aria-valuenow="45" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+              <p class="text-muted mb-0">Change</p>
+              <p class="text-muted mb-0">25%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>Recent</strong> Report</h2>
+          </div>
+          <div class="body">
+            <div class="recent-report__chart">
+              <apx-chart [series]="lineChartOptions.series" [chart]="lineChartOptions.chart"
+                [xaxis]="lineChartOptions.xaxis" [stroke]="lineChartOptions.stroke" [colors]="lineChartOptions.colors"
+                [dataLabels]="lineChartOptions.dataLabels" [legend]="lineChartOptions.legend"
+                [tooltip]="lineChartOptions.tooltip" [markers]="lineChartOptions.markers" [grid]="lineChartOptions.grid"
+                [yaxis]="lineChartOptions.yaxis" [title]="lineChartOptions.title" [fill]="lineChartOptions.fill">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>Recent</strong> Report</h2>
+          </div>
+          <div class="body">
+            <apx-chart [series]="barChartOptions.series" [chart]="barChartOptions.chart"
+              [dataLabels]="barChartOptions.dataLabels" [plotOptions]="barChartOptions.plotOptions"
+              [responsive]="barChartOptions.responsive" [xaxis]="barChartOptions.xaxis"
+              [tooltip]="barChartOptions.tooltip" [legend]="barChartOptions.legend" [fill]="barChartOptions.fill">
+            </apx-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <!-- Task Info -->
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>Clients</strong> Details</h2>
+          </div>
+          <div class="tableBody">
+            <div class="table-responsive">
+              <table class="table table-hover dashboard-task-infos">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Project Name</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user1.jpg" alt="">
+                    </td>
+                    <td>John Doe</td>
+                    <td>xyz@email.com</td>
+                    <td>
+                      <span class="label bg-green shadow-style">Active</span>
+                    </td>
+                    <td>ERP System</td>
+                    <td>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">mode_edit</i>
+                      </button>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">delete</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user2.jpg" alt="">
+                    </td>
+                    <td>Sarah Smith</td>
+                    <td>xyz@email.com</td>
+                    <td>
+                      <span class="label bg-red shadow-style">Inactive</span>
+                    </td>
+                    <td>Abc Website</td>
+                    <td>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">mode_edit</i>
+                      </button>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">delete</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user3.jpg" alt="">
+                    </td>
+                    <td>Airi Satou</td>
+                    <td>xyz@email.com</td>
+                    <td>
+                      <span class="label bg-green shadow-style">Active</span>
+                    </td>
+                    <td>Android App</td>
+                    <td>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">mode_edit</i>
+                      </button>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">delete</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user4.jpg" alt="">
+                    </td>
+                    <td>Angelica Ramos</td>
+                    <td>xyz@email.com</td>
+                    <td>
+                      <span class="label bg-green shadow-style">Active</span>
+                    </td>
+                    <td>Ios App</td>
+                    <td>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">mode_edit</i>
+                      </button>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">delete</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user5.jpg" alt="">
+                    </td>
+                    <td>Ashton Cox</td>
+                    <td>xyz@email.com</td>
+                    <td>
+                      <span class="label bg-red shadow-style">Inactive</span>
+                    </td>
+                    <td>Java Website</td>
+                    <td>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">mode_edit</i>
+                      </button>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">delete</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user6.jpg" alt="">
+                    </td>
+                    <td>Cara Stevens</td>
+                    <td>xyz@email.com</td>
+                    <td>
+                      <span class="label bg-green shadow-style">Active</span>
+                    </td>
+                    <td>Desktop App</td>
+                    <td>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">mode_edit</i>
+                      </button>
+                      <button class="btn tblActnBtn">
+                        <i class="material-icons">delete</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- #END# Task Info -->
+      <!-- Browser Usage -->
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>New </strong>Projects</h2>
+          </div>
+          <div class="body">
+            <div id="new-orders" class="media-list position-relative">
+              <div class="table-responsive">
+                <table id="new-orders-table" class="table table-hover table-xl mb-0">
+                  <thead>
+                    <tr>
+                      <th class="border-top-0">Product</th>
+                      <th class="border-top-0">Employees</th>
+                      <th class="border-top-0">Cost</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-truncate">iPhone X</td>
+                      <td class="text-truncate">
+                        <ul class="list-unstyled order-list">
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user1.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user2.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user3.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <span class="badge">+4</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="text-truncate">$8999</td>
+                    </tr>
+                    <tr>
+                      <td class="text-truncate">Pixel 2</td>
+                      <td class="text-truncate">
+                        <ul class="list-unstyled order-list">
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user1.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user2.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user3.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <span class="badge">+4</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="text-truncate">$5550</td>
+                    </tr>
+                    <tr>
+                      <td class="text-truncate">OnePlus</td>
+                      <td class="text-truncate">
+                        <ul class="list-unstyled order-list">
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user1.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user2.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user3.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <span class="badge">+4</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="text-truncate">$9000</td>
+                    </tr>
+                    <tr>
+                      <td class="text-truncate">Galaxy</td>
+                      <td class="text-truncate">
+                        <ul class="list-unstyled order-list">
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user1.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user2.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user3.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <span class="badge">+4</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="text-truncate">$7500</td>
+                    </tr>
+                    <tr>
+                      <td class="text-truncate">Moto Z2</td>
+                      <td class="text-truncate">
+                        <ul class="list-unstyled order-list">
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user1.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user2.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user3.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <span class="badge">+4</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="text-truncate">$8500</td>
+                    </tr>
+                    <tr>
+                      <td class="text-truncate">iPhone X</td>
+                      <td class="text-truncate">
+                        <ul class="list-unstyled order-list">
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user1.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user2.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user3.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <span class="badge">+4</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="text-truncate">$8999</td>
+                    </tr>
+                    <tr>
+                      <td class="text-truncate">iPhone X</td>
+                      <td class="text-truncate">
+                        <ul class="list-unstyled order-list">
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user1.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user2.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <img class="rounded-circle" src="assets/images/user/user3.jpg" alt="user">
+                          </li>
+                          <li class="avatar avatar-sm">
+                            <span class="badge">+4</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="text-truncate">$8999</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- #END# Browser Usage -->
+    </div>
+    <div class="row clearfix">
+      <!-- Activity -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="card">
+          <div class="header">
+            <h2>Activity</h2>
+          </div>
+          <div class="body">
+            <div class="assign-style">
+              <ul class="feedBody">
+                <li class="active-feed">
+                  <div class="feed-user-img">
+                    <img src="assets/images/user/user1.jpg" class="img-radius " alt="User-Profile-Image">
+                  </div>
+                  <h6>
+                    <span class="feedLblStyle lblFileStyle">File</span> Sarah Smith
+                    <small class="text-muted">6 hours ago</small>
+                  </h6>
+                  <p class="m-b-15 m-t-15">
+                    hii John, I have upload doc related to task.
+                  </p>
+                </li>
+                <li class="diactive-feed">
+                  <div class="feed-user-img">
+                    <img src="assets/images/user/user2.jpg" class="img-radius " alt="User-Profile-Image">
+                  </div>
+                  <h6>
+                    <span class="feedLblStyle lblTaskStyle">Task </span> Jalpa Joshi
+                    <small class="text-muted">5 hours ago
+                    </small>
+                  </h6>
+                  <p class="m-b-15 m-t-15">
+                    Please do as specify. Let me know if you have any query.
+                  </p>
+                </li>
+                <li class="diactive-feed">
+                  <div class="feed-user-img">
+                    <img src="assets/images/user/user3.jpg" class="img-radius " alt="User-Profile-Image">
+                  </div>
+                  <h6>
+                    <span class="feedLblStyle lblCommentStyle">comment</span> Lina Smith
+                    <small class="text-muted">6 hours ago</small>
+                  </h6>
+                  <p class="m-b-15 m-t-15">
+                    Hey, How are you??
+                  </p>
+                </li>
+                <li class="active-feed">
+                  <div class="feed-user-img">
+                    <img src="assets/images/user/user4.jpg" class="img-radius " alt="User-Profile-Image">
+                  </div>
+                  <h6>
+                    <span class="feedLblStyle lblReplyStyle">Reply</span> Jacob Ryan
+                    <small class="text-muted">7 hours ago</small>
+                  </h6>
+                  <p class="m-b-15 m-t-15">
+                    I am fine. You??
+                  </p>
+                </li>
+                <li class="diactive-feed">
+                  <div class="feed-user-img">
+                    <img src="assets/images/user/user6.jpg" class="img-radius " alt="User-Profile-Image">
+                  </div>
+                  <h6>
+                    <span class="feedLblStyle lblTaskStyle">Task </span> Jalpa Joshi
+                    <small class="text-muted">5 hours ago
+                    </small>
+                  </h6>
+                  <p class="m-b-15 m-t-15">
+                    Please do as specify. Let me know if you have any query.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- #END# Activity -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="card">
+          <div class="header">
+            <h2>Assign Task</h2>
+          </div>
+          <div class="tableBody">
+            <div class="table-responsive">
+              <table class="table table-hover dashboard-task-infos">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Manager</th>
+                    <th>Progress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user1.jpg" alt="">
+                    </td>
+                    <td>Task A</td>
+                    <td>
+                      <span class="label l-bg-green shadow-style">Doing</span>
+                    </td>
+                    <td>John Doe</td>
+                    <td>
+                      <div class="progress shadow-style">
+                        <div class="progress-bar l-bg-green width-per-62" role="progressbar" aria-valuenow="62"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user2.jpg" alt="">
+                    </td>
+                    <td>Task B</td>
+                    <td>
+                      <span class="label l-bg-purple shadow-style">To Do</span>
+                    </td>
+                    <td>John Doe</td>
+                    <td>
+                      <div class="progress shadow-style">
+                        <div class="progress-bar l-bg-purple width-per-40" role="progressbar" aria-valuenow="40"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user3.jpg" alt="">
+                    </td>
+                    <td>Task C</td>
+                    <td>
+                      <span class="label l-bg-orange shadow-style">On Hold</span>
+                    </td>
+                    <td>John Doe</td>
+                    <td>
+                      <div class="progress shadow-style">
+                        <div class="progress-bar l-bg-orange width-per-72" role="progressbar" aria-valuenow="72"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user4.jpg" alt="">
+                    </td>
+                    <td>Task D</td>
+                    <td>
+                      <span class="label l-bg-cyan shadow-style">Wait Approvel</span>
+                    </td>
+                    <td>John Doe</td>
+                    <td>
+                      <div class="progress shadow-style">
+                        <div class="progress-bar l-bg-cyan width-per-95" role="progressbar" aria-valuenow="95"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user5.jpg" alt="">
+                    </td>
+                    <td>Task E</td>
+                    <td>
+                      <span class="label bg-green shadow-style">Suspended</span>
+                    </td>
+                    <td>John Doe</td>
+                    <td>
+                      <div class="progress shadow-style">
+                        <div class="progress-bar l-bg-green width-per-87" role="progressbar" aria-valuenow="87"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user1.jpg" alt="">
+                    </td>
+                    <td>Task A</td>
+                    <td>
+                      <span class="label bg-green shadow-style">Doing</span>
+                    </td>
+                    <td>John Doe</td>
+                    <td>
+                      <div class="progress shadow-style">
+                        <div class="progress-bar l-bg-green width-per-62" role="progressbar" aria-valuenow="62"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-img">
+                      <img src="assets/images/user/user2.jpg" alt="">
+                    </td>
+                    <td>Task B</td>
+                    <td>
+                      <span class="label l-bg-purple shadow-style">To Do</span>
+                    </td>
+                    <td>John Doe</td>
+                    <td>
+                      <div class="progress shadow-style">
+                        <div class="progress-bar l-bg-purple width-per-40" role="progressbar" aria-valuenow="40"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
