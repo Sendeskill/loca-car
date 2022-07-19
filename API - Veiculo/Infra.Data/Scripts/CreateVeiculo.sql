@@ -8,5 +8,7 @@ CREATE TABLE Veiculo
     Modelo varchar(150) not null,
     Marca varchar(150) not null,
     Cor varchar(100) not null,
-    Observacao varchar(250)not null
+    Observacao varchar(250) not null,
+    Status int not null,
+    Imagem text
 );

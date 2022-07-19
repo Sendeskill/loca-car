@@ -14,6 +14,7 @@ namespace Dominio.Commands.Contrato
             Requires().IsNotNullOrEmpty(command.Modelo, "Modelo", "Modelo é obrigatório");
             Requires().IsNotNullOrEmpty(command.Marca, "Marca", "Marca é obrigatória");
             Requires().IsNotNullOrEmpty(command.Cor, "Cor", "Cor é obrigatória");
+            Requires().IsNotNull(command.Status, "Status", "Status é obrigatório");
         }
     }
 }

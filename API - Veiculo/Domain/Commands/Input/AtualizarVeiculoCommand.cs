@@ -15,6 +15,8 @@ namespace Dominio.Commands.Input
         public string Marca { get; set; }
         public string Cor { get; set; }
         public string Observacao { get; set; }
+        public int Status { get; set; }
+        public string Imagem { get; set; }
 
         public bool EhValido()
         {

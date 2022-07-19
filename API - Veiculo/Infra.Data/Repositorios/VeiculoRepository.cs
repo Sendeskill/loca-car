@@ -36,6 +36,8 @@ namespace Infra.Data.Repositorios
             param.Add("@Marca", veiculo.Marca);
             param.Add("@Cor", veiculo.Cor);
             param.Add("@Observacao", veiculo.Observacao);
+            param.Add("@Status", veiculo.Status);
+            param.Add("@Imagem", veiculo.Imagem);
 
             await context.Connection.ExecuteScalarAsync(VeiculoQueries.SALVAR, param);
         }
@@ -49,6 +51,8 @@ namespace Infra.Data.Repositorios
             param.Add("@Marca", veiculo.Marca);
             param.Add("@Cor", veiculo.Cor);
             param.Add("@Observacao", veiculo.Observacao);
+            param.Add("@Status", veiculo.Status);
+            param.Add("@Imagem", veiculo.Imagem);
 
             await context.Connection.ExecuteScalarAsync(VeiculoQueries.ATUALIZAR, param);
         }

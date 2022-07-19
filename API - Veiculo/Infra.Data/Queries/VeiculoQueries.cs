@@ -13,9 +13,9 @@
 
         public const string SALVAR =
            @"INSERT INTO Veiculo (Descricao, Placa, AnoFabricacao, AnoModelo, 
-                                  Modelo, Marca, Cor, Observacao)
+                                  Modelo, Marca, Cor, Observacao, Status, Imagem)
                         VALUES (@Descricao, @Placa, @AnoFabricacao, @AnoModelo, 
-                                @Modelo, @Marca, @Cor, @Observacao);";
+                                @Modelo, @Marca, @Cor, @Observacao, @Status, @Imagem);";
 
         public const string ATUALIZAR =
           @"UPDATE Veiculo
@@ -27,7 +27,9 @@
                      Modelo = @Modelo,
                      Marca = @Marca,
                      Cor = @Cor,
-                     Observacao = @Observacao
+                     Observacao = @Observacao,
+                     Status = @Status,
+                     Imagem = @Imagem
                 WHERE Id = @Id;";
 
         public const string DELETAR =

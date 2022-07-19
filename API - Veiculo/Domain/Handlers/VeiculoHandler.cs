@@ -26,7 +26,8 @@ namespace Dominio.Handlers
             var salvarFilial = new Veiculo(command.Descricao, command.Placa, 
                                            command.AnoFabricacao, command.AnoModelo, 
                                            command.Modelo, command.Marca, 
-                                           command.Cor, command.Observacao);
+                                           command.Cor, command.Observacao,
+                                           command.Status, command.Imagem);
 
             await repository.SalvarAsync(salvarFilial);
             return new CommandResult(true, "Veículo inserido com sucesso", command);
@@ -41,7 +42,8 @@ namespace Dominio.Handlers
             var salvarFilial = new Veiculo(command.Descricao, command.Placa, 
                                            command.AnoFabricacao, command.AnoModelo, 
                                            command.Modelo, command.Marca, 
-                                           command.Cor, command.Observacao);
+                                           command.Cor, command.Observacao,
+                                           command.Status, command.Imagem);
 
             await repository.AtualizarAsync(salvarFilial);
             return new CommandResult(true, "Veículo atualizado com sucesso", command);
