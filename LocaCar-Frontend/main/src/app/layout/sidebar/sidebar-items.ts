@@ -11,40 +11,77 @@ export const ROUTES: RouteInfo[] = [
   //   submenu: []
   // },
   {
-    path: '',
+    path: 'dashboard/main',
     title: 'MENUITEMS.HOME.TEXT',
     moduleName: 'dashboard',
     icon: 'fas fa-home',
-    class: 'menu-toggle',
+    class: '',
     groupTitle: false,
     submenu: [
-      {
-        path: 'dashboard/main',
-        title: 'MENUITEMS.HOME.LIST.DASHBOARD1',
-        moduleName: 'dashboard',
-        icon: '',
-        class: 'ml-menu',
-        groupTitle: false,
-        submenu: []
-      },
       // {
-      //   path: 'dashboard/dashboard2',
-      //   title: 'MENUITEMS.HOME.LIST.DASHBOARD2',
+      //   path: 'dashboard/main',
+      //   title: 'MENUITEMS.HOME.LIST.DASHBOARD1',
       //   moduleName: 'dashboard',
       //   icon: '',
       //   class: 'ml-menu',
       //   groupTitle: false,
       //   submenu: []
       // },
-      // {
-      //   path: 'dashboard/dashboard3',
-      //   title: 'MENUITEMS.HOME.LIST.DASHBOARD3',
-      //   moduleName: 'dashboard',
-      //   icon: '',
-      //   class: 'ml-menu',
-      //   groupTitle: false,
-      //   submenu: []
-      // }
+    ]
+  },
+  {
+    path: 'locacao',
+    title: 'MENUITEMS.SOLICITACAO-LOCACAO.TEXT',
+    moduleName: 'locacao',
+    icon: 'fas fa-list',
+    class: '',
+    groupTitle: false,
+    submenu: []
+  },
+  {
+    path: 'usuario',
+    title: 'MENUITEMS.USUARIO.TEXT',
+    moduleName: 'usuario',
+    icon: 'fas fa-users',
+    class: '',
+    groupTitle: false,
+    submenu: []
+  },
+  {
+    path: 'veiculo',
+    title: 'MENUITEMS.VEICULO.TEXT',
+    moduleName: 'veiculo',
+    icon: 'fas fa-car',
+    class: 'menu-toggle',
+    groupTitle: false,
+    submenu: [
+      {
+        path: '/veiculo/disponiveis',
+        title: 'MENUITEMS.VEICULO.LIST.DISPONIVEIS',
+        moduleName: 'veiculo',
+        icon: '',
+        class: 'ml-menu',
+        groupTitle: false,
+        submenu: []
+      },
+      {
+        path: '/veiculo/manutencao',
+        title: 'MENUITEMS.VEICULO.LIST.MANUTENCAO',
+        moduleName: 'veiculo',
+        icon: '',
+        class: 'ml-menu',
+        groupTitle: false,
+        submenu: []
+      },
+      {
+        path: 'veiculo/cadastro',
+        title: 'MENUITEMS.VEICULO.LIST.CADASTRO',
+        moduleName: 'veiculo',
+        icon: '',
+        class: 'ml-menu',
+        groupTitle: false,
+        submenu: []
+      },
     ]
   },
   {

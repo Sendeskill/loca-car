@@ -1,0 +1,86 @@
+<section class="content">
+  <div class="block-header">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul class="breadcrumb breadcrumb-style ">
+          <li class="breadcrumb-item">
+            <h4 class="page-title">Locações</h4>
+          </li>
+          <!-- <li class="breadcrumb-item bcrumb-1">
+            <a routerLink="/locacao">
+              <i class="fas fa-car"></i></a>
+          </li> -->
+          <li class="breadcrumb-item active">Solicitações de locação</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <!-- <div class="header">
+              <h2>
+                <strong>Pagination</strong> Table</h2>
+            </div> -->
+            <div class="body table-responsive">
+              <table mat-table [dataSource]="dataSource2" class="w-100">
+                <!-- No Column -->
+                <ng-container matColumnDef="no">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+                </ng-container>
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Data Solicitação </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <!-- Gender Column -->
+                <ng-container matColumnDef="gender">
+                  <th mat-header-cell *matHeaderCellDef> Veículo </th>
+                  <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+                </ng-container>
+                <!-- Email Column -->
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef> Placa </th>
+                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+                <!-- Address Column -->
+                <ng-container matColumnDef="address">
+                  <th mat-header-cell *matHeaderCellDef> Cor </th>
+                  <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                </ng-container>
+                <!-- Mobile Column -->
+                <ng-container matColumnDef="mobile">
+                  <th mat-header-cell *matHeaderCellDef> Ano </th>
+                  <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+                </ng-container>
+                <!-- Salary Column -->
+                <ng-container matColumnDef="salary">
+                  <th mat-header-cell *matHeaderCellDef> Solicitante </th>
+                  <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
+                </ng-container>
+                <!-- Ações -->
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> Ações </th>
+                  <td mat-cell  *matCellDef="let element">
+                    <div class="example-button-container">
+                      <button mat-mini-fab style="background-color: green;" aria-label="icon button with a edit icon">
+                        <mat-icon>check</mat-icon>
+                      </button>
+                      &nbsp;
+                      <button mat-mini-fab style="background-color: red;" aria-label="icon button with a delete icon">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </div>
+                  </td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>

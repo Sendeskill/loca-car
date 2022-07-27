@@ -15,9 +15,17 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { SolicitacoesPendentesComponent } from './main/components/solicitacoes-pendentes/solicitacoes-pendentes.component';
 import { StatusVeiculosChartComponent } from './main/components/status-veiculos-chart/status-veiculos-chart.component';
+import { VeiculosDisponiveisComponent } from './main/components/veiculos-disponiveis/veiculos-disponiveis.component';
 
 @NgModule({
-  declarations: [MainComponent, Dashboard2Component, Dashboard3Component, SolicitacoesPendentesComponent, StatusVeiculosChartComponent],
+  declarations: [
+    MainComponent, 
+    Dashboard2Component, 
+    Dashboard3Component, 
+    SolicitacoesPendentesComponent, 
+    StatusVeiculosChartComponent, 
+    VeiculosDisponiveisComponent
+  ],
   imports: [
     CommonModule,
     DashboardRoutingModule,

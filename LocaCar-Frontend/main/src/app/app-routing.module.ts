@@ -18,6 +18,27 @@ const routes: Routes = [
           import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
       {
+        path: 'locacao',
+        loadChildren: () =>
+          import('./locacoes/locacao/locacao.module').then(
+            (m) => m.LocacaoModule
+          )
+      },
+      {
+        path: 'usuario',
+        loadChildren: () =>
+          import('./usuario/usuario.module').then(
+            (m) => m.UsuarioModule
+          )
+      },
+      {
+        path: 'veiculo',
+        loadChildren: () =>
+          import('./veiculos/veiculos.module').then(
+            (m) => m.VeiculosModule
+          )
+      },
+      {
         path: 'advance-table',
         loadChildren: () =>
           import('./advance-table/advance-table.module').then(

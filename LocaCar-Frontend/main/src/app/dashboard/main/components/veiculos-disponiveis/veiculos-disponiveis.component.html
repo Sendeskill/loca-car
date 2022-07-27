@@ -1,0 +1,29 @@
+<div class="row clearfix" >
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="card">
+        <div>
+          <h3 style="color: #5653ED;">
+            <strong>Veículos Disponíveis</strong>
+          </h3>
+        </div>
+        <div class="body table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Veículo</th>    
+                <th>Placa</th>
+                <th>Cor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of ultimosDisponiveis">
+                <th scope="row">{{item.veiculo}}</th>
+                <td>{{item.placa}}</td>
+                <td>{{item.cor}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

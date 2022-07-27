@@ -19,6 +19,20 @@
         "DASHBOARD3": "Dashboard 3"
       }
     },
+    "SOLICITACAO-LOCACAO": {
+      "TEXT": "Locações"
+    },
+    "USUARIO": {
+      "TEXT": "Usuários"
+    },
+    "VEICULO" : {
+      "TEXT": "Veículos",
+      "LIST": {
+        "DISPONIVEIS": "Disponíveis",
+        "MANUTENCAO": "Em Manutenção",
+        "CADASTRO": "Cadastro"
+      }
+    },
     "ADVANCE-TABLE": {
       "TEXT": "Advance Table"
     },
