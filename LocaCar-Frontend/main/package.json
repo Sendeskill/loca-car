@@ -46,7 +46,7 @@
     "core-js": "^3.12.1",
     "echarts": "^4.9.0",
     "mat-progress-buttons": "^9.2.1",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "ng-apexcharts": "^1.5.10",
     "ng-click-outside": "^8.0.0",
     "ng-image-fullscreen-view": "^2.0.0",

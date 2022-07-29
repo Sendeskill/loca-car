@@ -1,0 +1,124 @@
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb breadcrumb-style ">
+                <li class="breadcrumb-item">
+                <h4 class="page-title">Cadastro de usuário</h4>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="card">
+            <div class="body">
+              <form class="register-form m-4" [formGroup]="register" (ngSubmit)="onRegister()">
+                <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Nome</mat-label>
+                      <input matInput formControlName="nome" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="register.get('nome').hasError('required')">
+                        Nome é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Sobrenome</mat-label>
+                      <input matInput formControlName="sobrenome">
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="register.get('sobrenome').hasError('required')">
+                        Sobrenome é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Data de nascimento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+               </div>        
+                <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>CPF</mat-label>
+                      <input matInput mask="000.000.000-00" formControlName="cpf" required>
+                      <mat-icon matSuffix>card_membership</mat-icon>
+                      <mat-error *ngIf="register.get('cpf').hasError('cpf')">
+                        CPF é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input matInput formControlName="email" required>
+                      <mat-icon matSuffix>email</mat-icon>
+                      <mat-error *ngIf="register.get('email').hasError('required') || register.get('email').touched">
+                        E-mail inválido
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Telefone</mat-label>
+                      <input matInput mask="(00)00000-0000" formControlName="telefone" required>
+                      <mat-icon matSuffix>telefone</mat-icon>
+                      <mat-error *ngIf="register.get('telefone').hasError('required') || register.get('telefone').touched">
+                        Telefone é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-4 col-lg-4col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Setor</mat-label>
+                        <mat-select formControlName="setor" required>
+                        <mat-option [value]="'Administrativo'">
+                            Administrativo
+                        </mat-option>
+                        <mat-option [value]="'T.I'">
+                            T.I
+                        </mat-option>
+                        <mat-option [value]="'Financeiro'">
+                            Financeiro
+                        </mat-option>
+                        <mat-option [value]="'Consultoria'">
+                            Consultoria
+                        </mat-option>
+                        <mat-option [value]="'RH'">
+                            RH
+                        </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix>business</mat-icon>
+                        <mat-error *ngIf="register.get('setor').hasError('setor')">
+                        Setor é obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-20">
+                    <mat-checkbox class="example-margin" color="primary" formControlName="administrador">
+                        Usuário administrador
+                    </mat-checkbox>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <button class="msr-3" [disabled]="!register.valid" mat-raised-button color="primary">Cadastrar</button>
+                    <button type="button" color="warn"  mat-raised-button>Cancelar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>    
+</section>

@@ -19,15 +19,37 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { UsuarioCadastroComponent } from './usuario-cadastro/usuario-cadastro.component';
+import { FormsRoutingModule } from '../forms/forms-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { NgxMaskModule } from 'ngx-mask';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 
 @NgModule({
   declarations: [
-    UsuarioListComponent
+    UsuarioListComponent,
+    UsuarioCadastroComponent
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-br'},
   ],
   imports: [
     CommonModule,
+    NgxMaskModule.forRoot(),
     UsuarioRoutingModule,
     MatButtonModule,
     MatTableModule,
@@ -46,7 +68,39 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     MatSortModule,
     MatToolbarModule,
     MaterialFileInputModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CKEditorModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatSliderModule,
+    MatSortModule,
+    MatStepperModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    NgxMaskModule,
+    ColorPickerModule,
+    MaterialFileInputModule,
+  
   ]
 })
 export class UsuarioModule { }
