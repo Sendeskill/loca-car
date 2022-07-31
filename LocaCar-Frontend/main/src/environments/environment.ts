@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: 'http://localhost:4200',
   apiUsuario: 'https://localhost:5001',
   apiVeiculo: 'https://localhost:5002',
+  apiLocacao: 'https://localhost:5004',
 };
 
 /*

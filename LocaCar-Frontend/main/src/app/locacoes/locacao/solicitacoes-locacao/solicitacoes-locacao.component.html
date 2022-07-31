@@ -27,37 +27,37 @@
                 <!-- No Column -->
                 <ng-container matColumnDef="no">
                   <th mat-header-cell *matHeaderCellDef> No. </th>
-                  <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+                  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                 </ng-container>
                 <!-- Name Column -->
                 <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Data Solicitação </th>
-                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  <th mat-header-cell *matHeaderCellDef> Data Locação </th>
+                  <td mat-cell *matCellDef="let element"> {{element.dataLocacao | date:'dd/MM/yyyy'}} </td>
                 </ng-container>
                 <!-- Gender Column -->
                 <ng-container matColumnDef="gender">
                   <th mat-header-cell *matHeaderCellDef> Veículo </th>
-                  <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+                  <td mat-cell *matCellDef="let element"> {{getVeiculoLocacao(element.veiculoId).modelo}} </td>
                 </ng-container>
                 <!-- Email Column -->
                 <ng-container matColumnDef="email">
                   <th mat-header-cell *matHeaderCellDef> Placa </th>
-                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                  <td mat-cell *matCellDef="let element"> {{getVeiculoLocacao(element.veiculoId).placa}} </td>
                 </ng-container>
                 <!-- Address Column -->
                 <ng-container matColumnDef="address">
                   <th mat-header-cell *matHeaderCellDef> Cor </th>
-                  <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                  <td mat-cell *matCellDef="let element"> {{getVeiculoLocacao(element.veiculoId).cor}} </td>
                 </ng-container>
                 <!-- Mobile Column -->
                 <ng-container matColumnDef="mobile">
-                  <th mat-header-cell *matHeaderCellDef> Ano </th>
-                  <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+                  <th mat-header-cell *matHeaderCellDef> Ano Fabricação </th>
+                  <td mat-cell *matCellDef="let element"> {{getVeiculoLocacao(element.veiculoId).anoFabricacao}} </td>
                 </ng-container>
                 <!-- Salary Column -->
                 <ng-container matColumnDef="salary">
                   <th mat-header-cell *matHeaderCellDef> Solicitante </th>
-                  <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
+                  <td mat-cell *matCellDef="let element"> {{getUsuarioLocacao(element.usuarioId)}} </td>
                 </ng-container>
                 <!-- Ações -->
                 <ng-container matColumnDef="actions">

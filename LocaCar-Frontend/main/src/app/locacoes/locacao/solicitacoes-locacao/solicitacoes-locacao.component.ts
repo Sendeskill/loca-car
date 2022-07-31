@@ -1,6 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { forkJoin } from 'rxjs';
+import { Locacao } from 'src/app/models/locacao.model';
+import { Usuario } from 'src/app/models/usuario.model';
+import { Veiculo } from 'src/app/models/veiculo.model';
+import { UsuarioService } from 'src/app/usuario/services/usuario.service';
+import { VeiculoService } from 'src/app/veiculos/services/veiculo.service';
+import { LocacaoService } from '../service/locacao.service';
 
 export interface PeriodicElement {
   name: string;
@@ -119,13 +126,39 @@ export class SolicitacoesLocacaoComponent implements OnInit {
     'salary',
     'actions'
   ];
-  dataSource2 = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  
+  dataSource2 = new MatTableDataSource<Locacao>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor() { }
+  usuarios: Usuario[] = [];
+  veiculos: Veiculo[] = [];
+
+  constructor(private locacaoService: LocacaoService,
+              private usuarioService: UsuarioService,
+              private veiculoService: VeiculoService) { }
 
   ngOnInit(): void {
     this.dataSource2.paginator = this.paginator;
+    this.getLocacoes();
   }
 
+  getLocacoes() {
+    forkJoin({
+      locacoes: this.locacaoService.getLocacoes(),
+      usuarios: this.usuarioService.getUsuarios(),
+      veiculos: this.veiculoService.getVeiculos(),
+    }).subscribe((result) => {
+      this.dataSource2 = new MatTableDataSource<Locacao>(result.locacoes);
+      this.usuarios = result.usuarios;
+      this.veiculos = result.veiculos;
+    });
+  }
+
+  getUsuarioLocacao(id: number): String {
+    return this.usuarios.filter((u) => u.id == id)[0].nome;
+  }
+
+  getVeiculoLocacao(id: number): Veiculo {
+    return this.veiculos.filter((v) => v.id == id)[0];
+  }
 }
