@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VeiculosDisponiveisComponent } from '../veiculos/veiculos-disponiveis/veiculos-disponiveis.component';
+import { CadastroVeiculoComponent } from './cadastro-veiculo/cadastro-veiculo.component';
 import { VeiculosEmManutencaoComponent } from './veiculos-em-manutencao/veiculos-em-manutencao.component';
 
 
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'manutencao',
     component: VeiculosEmManutencaoComponent
+  },
+  {
+    path: 'cadastro',
+    component: CadastroVeiculoComponent
   }
 ];
 

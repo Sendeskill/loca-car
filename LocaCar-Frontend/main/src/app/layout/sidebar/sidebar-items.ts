@@ -74,7 +74,7 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       },
       {
-        path: 'veiculo/cadastro',
+        path: '/veiculo/cadastro',
         title: 'MENUITEMS.VEICULO.LIST.CADASTRO',
         moduleName: 'veiculo',
         icon: '',

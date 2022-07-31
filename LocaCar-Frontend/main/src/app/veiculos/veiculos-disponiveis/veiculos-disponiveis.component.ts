@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Veiculo } from 'src/app/models/veiculo.model';
+import Swal from 'sweetalert2';
+import { VeiculoService } from '../services/veiculo.service';
 
 export interface PeriodicElement {
   name: string;
@@ -112,20 +115,66 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class VeiculosDisponiveisComponent implements OnInit {
   displayedColumns: string[] = [
     'no',
-    'name',
-    'gender',
-    'email',
-    'address',
-    'mobile',
-    'salary'
+    'modelo',
+    'placa',
+    'marca',
+    'cor',
+    'anoFabricacao',
+    'anoModelo',
+    'status',
+    'actions'
   ];
-  dataSource2 = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource2 = new MatTableDataSource<Veiculo>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   
-  constructor() { }
+  loading: boolean = false;
+
+  constructor(private veiculoService: VeiculoService) { }
+  
+
 
   ngOnInit(): void {
     this.dataSource2.paginator = this.paginator;
+    this.getVeiculos();
+  }
+
+  getVeiculos() {
+    this.loading = true;
+    this.veiculoService.getVeiculos()
+        .subscribe((result) => {
+          this.dataSource2 = new MatTableDataSource<Veiculo>(result);
+          this.loading = false;
+        });
+  }
+
+  delete(id: number) {
+    Swal.fire({
+      title: 'Deseja remover esse veículo?',
+      text: "Esse processo não será desfeito!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, excluir veículo!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.loading = true;
+        this.veiculoService.delete(id)
+        .subscribe((result) => {
+          if(result['success']) {
+            this.loading = false;
+            Swal.fire({
+              icon: 'success',
+              title: 'Sucesso',
+              text: 'Veículo excluído com sucesso!',
+            }).finally(() => {
+              this.getVeiculos();
+            });
+          }
+        });
+      }
+    })    
   }
 
 }

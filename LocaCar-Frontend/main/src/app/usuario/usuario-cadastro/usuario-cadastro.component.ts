@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario.model';
+import Swal from 'sweetalert2';
+import { UsuarioService } from '../services/usuario.service';
 
 
 export const MY_DATE_FORMATS = {
@@ -23,9 +27,9 @@ export const MY_DATE_FORMATS = {
 
 
 export class UsuarioCadastroComponent implements OnInit {
-  // Form 1
-  register: FormGroup;
-  hide = true;
+    // Form 1
+    register: FormGroup;
+    hide = true;
 
 
     // Date Picker
@@ -35,11 +39,16 @@ export class UsuarioCadastroComponent implements OnInit {
     minDate: Date;
     maxDate: Date;
 
-  constructor(private fb: FormBuilder, private dataAdapter: DateAdapter<any>) { 
+  constructor(private fb: FormBuilder, 
+              private dataAdapter: DateAdapter<any>,
+              private usuarioService: UsuarioService,
+              private route: Router) { 
     this.initForm();
     dataAdapter.setLocale('pt-br');
   }
 
+
+  usuario: Usuario = new Usuario();
   
 
   ngOnInit(): void {
@@ -49,20 +58,41 @@ export class UsuarioCadastroComponent implements OnInit {
     this.register = this.fb.group({
       nome: ['', [Validators.required]],
       sobrenome: [''],
-      dataNascimento: ['', [Validators.required]],
       cpf: ['', [Validators.required]],
       email: [
         '',
         [Validators.required, Validators.email, Validators.minLength(5)]
       ],
-      telefone: ['', [Validators.required]],
-      setor: ['', [Validators.required]],
-      administrador: [false]
+      logradouro: ['', [Validators.required]],
+      cidade: ['', [Validators.required]],
+      tipo: [false]
     });
   }
 
   onRegister() {
-    console.log('Form Value', this.register.value);
+    // console.log('Form Value', this.register.value);
+
+    this.usuario.nome = this.register.value['nome'] + ' ' + this.register.value['sobrenome'];
+    this.usuario.cpf = this.register.value['cpf'];
+    this.usuario.email = this.register.value['email'];
+    this.usuario.logradouro = this.register.value['logradouro'];
+    this.usuario.cidade = this.register.value['cidade'];
+    this.usuario.tipo = this.register.value['tipo'] != true ? 0 : 1;
+    this.usuario.senha = '123!@#';
+
+    this.usuarioService.saveUsuario(this.usuario)
+        .subscribe((result) => {
+          console.log(result);
+          if(result['success']) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Sucesso',
+              text: 'Usuário salvo com sucesso!',
+            }).finally(() => {
+              this.route.navigateByUrl('/usuario');
+            });
+          }
+        });
   }
 
 }

@@ -36,6 +36,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgxMaskModule } from 'ngx-mask';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -49,15 +50,14 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
   ],
   imports: [
     CommonModule,
-    NgxMaskModule.forRoot(),
     UsuarioRoutingModule,
+    NgxMaskModule.forRoot(),
     MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
-    MatButtonModule,
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
@@ -74,33 +74,18 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     ReactiveFormsModule,
     CKEditorModule,
     MatAutocompleteModule,
-    MatButtonModule,
     MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatFormFieldModule,
     MatGridListModule,
-    MatIconModule,
-    MatInputModule,
     MatListModule,
-    MatMenuModule,
-    MatRadioModule,
-    MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
     MatSliderModule,
-    MatSortModule,
     MatStepperModule,
-    MatToolbarModule,
     MatTooltipModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    NgxMaskModule,
     ColorPickerModule,
-    MaterialFileInputModule,
-  
+    MatProgressBarModule
   ]
 })
 export class UsuarioModule { }

@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Usuario } from 'src/app/models/usuario.model';
+import Swal from 'sweetalert2';
+import { UsuarioService } from '../services/usuario.service';
 
 export interface PeriodicElement {
   name: string;
@@ -111,21 +114,72 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class UsuarioListComponent implements OnInit {
   displayedColumns: string[] = [
     'no',
-    'name',
-    'gender',
+    'nome',
+    'tipo',
     'email',
-    'address',
-    'mobile',
-    'salary',
+    'logradouro',
+    'cidade',
+    'cpf',
     'actions'
   ];
-  dataSource2 = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource2 = new MatTableDataSource<Usuario>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor() { }
+  loading: boolean = false;
+
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
     this.dataSource2.paginator = this.paginator;
+    this.getUsuarios();
+  }
+
+  getUsuarios() {
+    this.loading = true;
+    this.usuarioService.getUsuarios()
+        .subscribe((result) => {
+          this.dataSource2 = new MatTableDataSource<Usuario>(result);
+          this.loading = false;
+        });
+  }
+
+  delete(id: number) {
+    Swal.fire({
+      title: 'Deseja remover esse usuário?',
+      text: "Esse processo não será desfeito!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, excluir usuário!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.loading = true;
+        this.usuarioService.deleteUsuario(id)
+        .subscribe((result) => {
+          if(result['success']) {
+            this.loading = false;
+            Swal.fire({
+              icon: 'success',
+              title: 'Sucesso',
+              text: 'Usuário excluído com sucesso!',
+            }).finally(() => {
+              this.getUsuarios();
+            });
+          } else {
+            this.loading = false;
+            Swal.fire({
+              icon: 'error',
+              title: 'Erro',
+              text: 'Erro ao excluir usuário!',
+            }).finally(() => {
+              this.getUsuarios();
+            });
+          }
+        });
+      }
+    })    
   }
 
 }

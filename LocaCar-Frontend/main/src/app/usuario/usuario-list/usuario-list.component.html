@@ -1,3 +1,4 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <section class="content">
     <div class="block-header">
       <div class="row">
@@ -28,37 +29,37 @@
                   <!-- No Column -->
                   <ng-container matColumnDef="no">
                     <th mat-header-cell *matHeaderCellDef> No. </th>
-                    <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                   </ng-container>
                   <!-- Name Column -->
-                  <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef> Data Solicitação </th>
-                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef> Nome </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
                   </ng-container>
                   <!-- Gender Column -->
-                  <ng-container matColumnDef="gender">
-                    <th mat-header-cell *matHeaderCellDef> Veículo </th>
-                    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+                  <ng-container matColumnDef="tipo">
+                    <th mat-header-cell *matHeaderCellDef> Tipo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.tipo == 1 ? 'Administrador' : 'Usuário'}} </td>
                   </ng-container>
                   <!-- Email Column -->
                   <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef> Placa </th>
+                    <th mat-header-cell *matHeaderCellDef> E-mail </th>
                     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                   </ng-container>
                   <!-- Address Column -->
-                  <ng-container matColumnDef="address">
-                    <th mat-header-cell *matHeaderCellDef> Solicitante </th>
-                    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                  <ng-container matColumnDef="logradouro">
+                    <th mat-header-cell *matHeaderCellDef> Logradouro </th>
+                    <td mat-cell *matCellDef="let element"> {{element.logradouro}} </td>
                   </ng-container>
                   <!-- Mobile Column -->
-                  <ng-container matColumnDef="mobile">
-                    <th mat-header-cell *matHeaderCellDef> Mobile </th>
-                    <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+                  <ng-container matColumnDef="cidade">
+                    <th mat-header-cell *matHeaderCellDef> Cidade </th>
+                    <td mat-cell *matCellDef="let element"> {{element.cidade}} </td>
                   </ng-container>
                   <!-- Salary Column -->
-                  <ng-container matColumnDef="salary">
-                    <th mat-header-cell *matHeaderCellDef> Salary </th>
-                    <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
+                  <ng-container matColumnDef="cpf">
+                    <th mat-header-cell *matHeaderCellDef> CPF </th>
+                    <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
                   </ng-container>
                   <!-- Ações -->
                   <ng-container matColumnDef="actions">
@@ -69,7 +70,7 @@
                           <mat-icon>edit</mat-icon>
                         </button>
                         &nbsp;
-                        <button mat-mini-fab style="background-color: red;" aria-label="icon button with a delete icon">
+                        <button (click)="delete(element.id)" mat-mini-fab style="background-color: red;" aria-label="icon button with a delete icon">
                           <mat-icon>close</mat-icon>
                         </button>
                       </div>

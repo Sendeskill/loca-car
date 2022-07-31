@@ -32,7 +32,7 @@ namespace Infra.Data.Repositorios
             param.Add("@Tipo", usuario.Tipo);
             param.Add("@Email", usuario.Email);
             param.Add("@Senha", usuario.Senha);
-            param.Add("@Cpf", usuario.Email);
+            param.Add("@Cpf", usuario.Cpf);
             param.Add("@Cidade", usuario.Cidade);
             param.Add("@Logradouro", usuario.Logradouro);
 

@@ -1,0 +1,108 @@
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb breadcrumb-style ">
+                <li class="breadcrumb-item">
+                <h4 class="page-title">Cadastro de veículo</h4>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="card">
+            <div class="body">
+              <form class="register-form m-4" [formGroup]="register" (ngSubmit)="onRegister()">
+                <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Modelo</mat-label>
+                      <input matInput formControlName="modelo" required>
+                      <mat-error *ngIf="register.get('modelo').hasError('required')">
+                        Modelo é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Placa</mat-label>
+                      <input matInput formControlName="placa" required>
+                      <mat-error *ngIf="register.get('placa').hasError('required')">
+                        Placa é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Ano Fabricacao</mat-label>
+                        <input type="number" matInput formControlName="anoFabricacao" maxlength="4">
+                        <mat-error *ngIf="register.get('anoFabricacao').hasError('anoFabricacao')">
+                          Ano fabricação é obrigatório
+                        </mat-error>
+                      </mat-form-field>
+                  </div>
+               </div>        
+                <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Ano Modelo</mat-label>
+                        <input type="number" matInput formControlName="anoModelo" maxlength="4">
+                        <mat-error *ngIf="register.get('anoModelo').hasError('anoModelo')">
+                          Ano modelo é obrigatório
+                        </mat-error>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Cor</mat-label>
+                      <input matInput  formControlName="cor" required>
+                      <mat-error *ngIf="register.get('cor').hasError('cor')">
+                        Cor é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Marca</mat-label>
+                      <input matInput formControlName="marca" required>
+                      <!-- <mat-icon matSuffix>telefone</mat-icon> -->
+                      <mat-error *ngIf="register.get('marca').hasError('required') || register.get('marca').touched">
+                        Marca é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Descrição</mat-label>
+                      <textarea matInput required formControlName="descricao"></textarea>
+                      <mat-error *ngIf="register.get('descricao').hasError('required') || register.get('descricao').touched">
+                        Observação é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-20">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Observação</mat-label>
+                      <textarea matInput required formControlName="observacao"></textarea>
+                      <mat-error *ngIf="register.get('observacao').hasError('required') || register.get('observacao').touched">
+                        Observação é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <button class="msr-3" [disabled]="!register.valid" mat-raised-button color="primary">Cadastrar</button>
+                    <button type="button" color="warn"  mat-raised-button>Cancelar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>    
+</section>
