@@ -4,22 +4,23 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  private currentUserSubject: BehaviorSubject<Usuario>;
+  public currentUser: Observable<Usuario>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(
-      JSON.parse(localStorage.getItem('currentUser'))
+    this.currentUserSubject = new BehaviorSubject<Usuario>(
+      JSON.parse(localStorage.getItem('usuario_logado'))
     );
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): User {
+  public get currentUserValue(): Usuario {
     return this.currentUserSubject.value;
   }
 
@@ -42,7 +43,7 @@ export class AuthService {
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('usuario_logado');
     this.currentUserSubject.next(null);
     return of({ success: false });
   }

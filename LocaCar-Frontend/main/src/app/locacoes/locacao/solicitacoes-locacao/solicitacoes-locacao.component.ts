@@ -118,12 +118,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class SolicitacoesLocacaoComponent implements OnInit {
   displayedColumns: string[] = [
     'no',
-    'name',
-    'gender',
-    'email',
-    'address',
-    'mobile',
-    'salary',
+    'dataLocacao',
+    'veiculo',
+    'placa',
+    'cor',
+    'anoFabricacao',
+    'solicitante',
     'actions'
   ];
   
@@ -132,6 +132,7 @@ export class SolicitacoesLocacaoComponent implements OnInit {
 
   usuarios: Usuario[] = [];
   veiculos: Veiculo[] = [];
+  loading: boolean = false;
 
   constructor(private locacaoService: LocacaoService,
               private usuarioService: UsuarioService,
@@ -143,6 +144,7 @@ export class SolicitacoesLocacaoComponent implements OnInit {
   }
 
   getLocacoes() {
+    this.loading = true;
     forkJoin({
       locacoes: this.locacaoService.getLocacoes(),
       usuarios: this.usuarioService.getUsuarios(),
@@ -151,6 +153,7 @@ export class SolicitacoesLocacaoComponent implements OnInit {
       this.dataSource2 = new MatTableDataSource<Locacao>(result.locacoes);
       this.usuarios = result.usuarios;
       this.veiculos = result.veiculos;
+      this.loading = false;
     });
   }
 

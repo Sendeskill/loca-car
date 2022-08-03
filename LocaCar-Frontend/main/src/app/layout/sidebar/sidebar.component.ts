@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { ROUTES } from './sidebar-items';
 import { AuthService } from 'src/app/core/service/auth.service';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -28,6 +29,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
   listMaxWidth: string;
   headerHeight = 60;
   routerObj = null;
+
+
+  nomeUsuarioLogado: String;
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
@@ -86,6 +91,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
   }
   ngOnInit() {
+    this.nomeUsuarioLogado =this.authService.currentUserValue.nome;
+    console.log(this.authService.currentUserValue);
     if (this.authService.currentUserValue) {
       this.sidebarItems = ROUTES.filter((sidebarItem) => sidebarItem);
     }
