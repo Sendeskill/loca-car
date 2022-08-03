@@ -44,7 +44,7 @@ export class UsuarioCadastroComponent implements OnInit {
               private usuarioService: UsuarioService,
               private route: Router) { 
     this.initForm();
-    dataAdapter.setLocale('pt-br');
+    this.dataAdapter.setLocale('pt-br');
   }
 
 

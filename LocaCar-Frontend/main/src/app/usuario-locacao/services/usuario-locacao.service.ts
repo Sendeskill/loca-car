@@ -4,15 +4,15 @@ import { Locacao } from 'src/app/models/locacao.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
-export class LocacaoService {
+export class UsuarioLocacaoService {
     constructor(private httpClient: HttpClient) { }
 
     getLocacoes() {
         return this.httpClient.get<Locacao[]>(`${environment.apiLocacao}/api/Locacao`);
     }
 
-    changeStatus(locacao: Locacao) {
-        return this.httpClient.put(`${environment.apiLocacao}/api/Locacao`, locacao);
+    save(locacao: Locacao) {
+        return this.httpClient.post(`${environment.apiLocacao}/api/Locacao`,locacao );
     }
     
 }

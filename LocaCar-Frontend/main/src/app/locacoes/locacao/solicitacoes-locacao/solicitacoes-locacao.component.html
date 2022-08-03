@@ -60,19 +60,24 @@
                   <th mat-header-cell *matHeaderCellDef> Solicitante </th>
                   <td mat-cell *matCellDef="let element"> {{getUsuarioLocacao(element.usuarioId)}} </td>
                 </ng-container>
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> Status </th>
+                  <td mat-cell *matCellDef="let element"> {{getStatus(element.status)}} </td>
+                </ng-container>
                 <!-- Ações -->
                 <ng-container matColumnDef="actions">
                   <th mat-header-cell *matHeaderCellDef> Ações </th>
                   <td mat-cell  *matCellDef="let element">
-                    <div class="example-button-container">
-                      <button mat-mini-fab style="background-color: green;" aria-label="icon button with a edit icon">
+                    <div class="example-button-container" *ngIf="element.status == 0">
+                      <button mat-mini-fab style="background-color: green;" (click)="aprovar(element)" aria-label="icon button with a edit icon">
                         <mat-icon>check</mat-icon>
                       </button>
                       &nbsp;
-                      <button mat-mini-fab style="background-color: red;" aria-label="icon button with a delete icon">
+                      <button mat-mini-fab style="background-color: red;" (click)="reprovar(element)" aria-label="icon button with a delete icon">
                         <mat-icon>close</mat-icon>
                       </button>
                     </div>
+                    
                   </td>
                 </ng-container>
                 

@@ -1,3 +1,4 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <section class="content">
     <div class="block-header">
         <div class="row">
@@ -10,4 +11,97 @@
             </div>
         </div>
     </div>
+    <div class="row clearfix">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="card">
+            <div class="body">
+              <form class="register-form m-4" [formGroup]="register" (ngSubmit)="onRegister()">
+                <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Descrição</mat-label>
+                      <input matInput formControlName="descricao" required>
+                      <!-- <mat-icon matSuffix>face</mat-icon> -->
+                      <mat-error *ngIf="register.get('descricao').hasError('required')">
+                        Descrição é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Data Locação</mat-label>
+                      <input matInput [matDatepicker]="pickerLocacao" required formControlName="dataLocacao">
+                      <mat-datepicker-toggle matSuffix [for]="pickerLocacao"></mat-datepicker-toggle>
+                      <mat-datepicker #pickerLocacao></mat-datepicker>
+                  
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Data Devolução</mat-label>
+                      <input matInput [matDatepicker]="pickerDevolucao" required formControlName="dataDevolucao">
+                      <mat-datepicker-toggle matSuffix [for]="pickerDevolucao"></mat-datepicker-toggle>
+                      <mat-datepicker #pickerDevolucao></mat-datepicker>
+                     
+                    </mat-form-field>
+                  </div>
+               </div>        
+                <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Usuários</mat-label>
+                        <mat-select  formControlName="usuarioId" >
+                          <mat-option *ngFor="let item of usuarios" [value]="item">{{ item.nome }}</mat-option>
+                        </mat-select>
+                       
+                      </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Veículos</mat-label>
+                        <mat-select  formControlName="veiculoId">
+                          <mat-option *ngFor="let item of veiculos" [value]="item" >{{ item.modelo }}</mat-option>
+                        </mat-select>
+                    
+                      </mat-form-field>
+                  </div>
+                  <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Logradouro</mat-label>
+                      <input matInput  formControlName="logradouro" required>
+                      <mat-icon matSuffix>telefone</mat-icon>
+                      <mat-error *ngIf="register.get('logradouro').hasError('required') || register.get('logradouro').touched">
+                        Logradouro é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Cidade</mat-label>
+                      <input matInput  formControlName="cidade" required>
+                      <mat-icon matSuffix>telefone</mat-icon>
+                      <mat-error *ngIf="register.get('cidade').hasError('required') || register.get('cidade').touched">
+                        Logradouro é obrigatório
+                      </mat-error>
+                    </mat-form-field>
+                  </div> -->
+                </div>
+                <!-- <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-20">
+                    <mat-checkbox class="example-margin" color="primary" formControlName="tipo">
+                        Usuário administrador
+                    </mat-checkbox>
+                  </div>
+                </div> -->
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <button class="msr-3" [disabled]="!register.valid" mat-raised-button color="primary">Cadastrar</button>
+                    <button type="button" color="warn"  mat-raised-button>Cancelar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>    
 </section>

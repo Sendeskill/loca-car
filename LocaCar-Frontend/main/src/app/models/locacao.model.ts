@@ -5,4 +5,5 @@ export class Locacao {
  descricao: String;
  dataLocacao: Date;
  dataDevolucao: Date;
+ status: number;
 }

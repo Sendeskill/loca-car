@@ -10,5 +10,6 @@ namespace Dominio.Queries
         public string Descricao { get; set; }
         public DateTime DataLocacao { get; set; }
         public DateTime DataDevolucao { get; set; }
+        public int Status { get; set; }
     }
 }
