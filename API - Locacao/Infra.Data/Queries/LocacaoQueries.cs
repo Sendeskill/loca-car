@@ -12,8 +12,8 @@
            WHERE Id=@Id";
 
         public const string SALVAR =
-           @"INSERT INTO Locacao (Descricao, UsuarioId, VeiculoId, DataLocacao, DataDevolucao)
-                    VALUES (@Descricao, @UsuarioId, @VeiculoId, @DataLocacao, @DataDevolucao);";
+           @"INSERT INTO Locacao (Descricao, UsuarioId, VeiculoId, DataLocacao, DataDevolucao, Status)
+                    VALUES (@Descricao, @UsuarioId, @VeiculoId, @DataLocacao, @DataDevolucao, @Status);";
 
         public const string ATUALIZAR =
           @"UPDATE Locacao
@@ -22,7 +22,8 @@
                      UsuarioId     = @UsuarioId,
                      VeiculoId     = @VeiculoId,
                      DataLocacao   = @DataLocacao,
-                     DataDevolucao = @DataDevolucao
+                     DataDevolucao = @DataDevolucao,
+                     Status = @Status
                 WHERE Id = @Id;";
 
         public const string DELETAR =

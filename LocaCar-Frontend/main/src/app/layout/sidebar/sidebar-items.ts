@@ -1,15 +1,6 @@
 import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
-  // {
-  //   path: '',
-  //   title: 'MENUITEMS.MAIN.TEXT',
-  //   moduleName: '',
-  //   icon: '',
-  //   class: '',
-  //   groupTitle: true,
-  //   submenu: []
-  // },
   {
     path: 'dashboard/main',
     title: 'MENUITEMS.HOME.TEXT',
@@ -83,6 +74,15 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       },
     ]
+  },
+  {
+    path: 'usuario-locacao',
+    title: 'MENUITEMS.USUARIO-LOCACAO.TEXT',
+    moduleName: 'usuario-locacao',
+    icon: 'fas fa-car',
+    class: '',
+    groupTitle: false,
+    submenu: []
   },
   {
     path: 'advance-table',

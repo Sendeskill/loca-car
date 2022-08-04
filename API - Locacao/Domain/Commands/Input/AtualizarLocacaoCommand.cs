@@ -13,7 +13,7 @@ namespace Dominio.Commands.Input
         public int VeiculoId { get; set; }
         public DateTime DataLocacao { get; set; }
         public DateTime DataDevolucao { get; set; }
-
+        public int Status { get; set; }
         public bool EhValido()
         {
             AddNotifications(new AtualizarLocacaoContract(this));

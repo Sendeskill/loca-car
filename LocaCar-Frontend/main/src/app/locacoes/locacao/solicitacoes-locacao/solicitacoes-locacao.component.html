@@ -1,3 +1,4 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <section class="content">
   <div class="block-header">
     <div class="row">
@@ -30,48 +31,53 @@
                   <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                 </ng-container>
                 <!-- Name Column -->
-                <ng-container matColumnDef="name">
+                <ng-container matColumnDef="dataLocacao">
                   <th mat-header-cell *matHeaderCellDef> Data Locação </th>
                   <td mat-cell *matCellDef="let element"> {{element.dataLocacao | date:'dd/MM/yyyy'}} </td>
                 </ng-container>
                 <!-- Gender Column -->
-                <ng-container matColumnDef="gender">
+                <ng-container matColumnDef="veiculo">
                   <th mat-header-cell *matHeaderCellDef> Veículo </th>
                   <td mat-cell *matCellDef="let element"> {{getVeiculoLocacao(element.veiculoId).modelo}} </td>
                 </ng-container>
                 <!-- Email Column -->
-                <ng-container matColumnDef="email">
+                <ng-container matColumnDef="placa">
                   <th mat-header-cell *matHeaderCellDef> Placa </th>
                   <td mat-cell *matCellDef="let element"> {{getVeiculoLocacao(element.veiculoId).placa}} </td>
                 </ng-container>
                 <!-- Address Column -->
-                <ng-container matColumnDef="address">
+                <ng-container matColumnDef="cor">
                   <th mat-header-cell *matHeaderCellDef> Cor </th>
                   <td mat-cell *matCellDef="let element"> {{getVeiculoLocacao(element.veiculoId).cor}} </td>
                 </ng-container>
                 <!-- Mobile Column -->
-                <ng-container matColumnDef="mobile">
+                <ng-container matColumnDef="anoFabricacao">
                   <th mat-header-cell *matHeaderCellDef> Ano Fabricação </th>
                   <td mat-cell *matCellDef="let element"> {{getVeiculoLocacao(element.veiculoId).anoFabricacao}} </td>
                 </ng-container>
                 <!-- Salary Column -->
-                <ng-container matColumnDef="salary">
+                <ng-container matColumnDef="solicitante">
                   <th mat-header-cell *matHeaderCellDef> Solicitante </th>
                   <td mat-cell *matCellDef="let element"> {{getUsuarioLocacao(element.usuarioId)}} </td>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> Status </th>
+                  <td mat-cell *matCellDef="let element"> {{getStatus(element.status)}} </td>
                 </ng-container>
                 <!-- Ações -->
                 <ng-container matColumnDef="actions">
                   <th mat-header-cell *matHeaderCellDef> Ações </th>
                   <td mat-cell  *matCellDef="let element">
-                    <div class="example-button-container">
-                      <button mat-mini-fab style="background-color: green;" aria-label="icon button with a edit icon">
+                    <div class="example-button-container" *ngIf="element.status == 0">
+                      <button mat-mini-fab style="background-color: green;" (click)="aprovar(element)" aria-label="icon button with a edit icon">
                         <mat-icon>check</mat-icon>
                       </button>
                       &nbsp;
-                      <button mat-mini-fab style="background-color: red;" aria-label="icon button with a delete icon">
+                      <button mat-mini-fab style="background-color: red;" (click)="reprovar(element)" aria-label="icon button with a delete icon">
                         <mat-icon>close</mat-icon>
                       </button>
                     </div>
+                    
                   </td>
                 </ng-container>
                 

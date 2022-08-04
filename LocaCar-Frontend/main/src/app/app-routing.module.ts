@@ -32,6 +32,10 @@ const routes: Routes = [
           )
       },
       {
+        path: 'usuario-locacao',
+        loadChildren: () => import('./usuario-locacao/usuario-locacao.module').then((m) => m.UsuarioLocacaoModule)
+      },
+      {
         path: 'veiculo',
         loadChildren: () =>
           import('./veiculos/veiculos.module').then(

@@ -25,7 +25,7 @@ namespace Dominio.Handlers
 
             var locacao = new Locacao(command.Descricao, command.UsuarioId,
                                       command.VeiculoId, command.DataLocacao,
-                                      command.DataDevolucao);
+                                      command.DataDevolucao, command.Status);
 
             await repository.SalvarAsync(locacao);
             return new CommandResult(true, "Locação inserido com sucesso", command);
@@ -39,7 +39,7 @@ namespace Dominio.Handlers
 
             var locacao = new Locacao(command.Id, command.Descricao,
                                       command.UsuarioId, command.VeiculoId,
-                                      command.DataLocacao, command.DataDevolucao);
+                                      command.DataLocacao, command.DataDevolucao, command.Status);
 
             await repository.AtualizarAsync(locacao);
             return new CommandResult(true, "Locação atualizado com sucesso", command);

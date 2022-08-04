@@ -33,6 +33,9 @@
         "CADASTRO": "Cadastro"
       }
     },
+    "USUARIO-LOCACAO": {
+      "TEXT": "Locação" 
+    },
     "ADVANCE-TABLE": {
       "TEXT": "Advance Table"
     },

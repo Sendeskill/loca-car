@@ -33,6 +33,7 @@ namespace Infra.Data.Repositorios
             param.Add("@VeiculoId", locacao.VeiculoId);
             param.Add("@DataLocacao", locacao.DataLocacao);
             param.Add("@DataDevolucao", locacao.DataDevolucao);
+            param.Add("@Status", locacao.Status);
 
             await context.Connection.ExecuteScalarAsync(LocacaoQueries.SALVAR, param);
         }
@@ -41,6 +42,11 @@ namespace Infra.Data.Repositorios
         {
             param.Add("@Id", locacao.Id);
             param.Add("@Descricao", locacao.Descricao);
+            param.Add("@UsuarioId", locacao.UsuarioId);
+            param.Add("@VeiculoId", locacao.VeiculoId);
+            param.Add("@DataLocacao", locacao.DataLocacao);
+            param.Add("@DataDevolucao", locacao.DataDevolucao);
+            param.Add("@Status", locacao.Status);
 
             await context.Connection.ExecuteScalarAsync(LocacaoQueries.ATUALIZAR, param);
         }

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { UnsubscribeOnDestroyAdapter } from 'src/app/shared/UnsubscribeOnDestroyAdapter';
+import { LoginService } from '../services/login.service';
+import { Usuario } from 'src/app/models/usuario.model';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -19,47 +21,47 @@ export class SigninComponent
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private loginService: LoginService,
   ) {
     super();
   }
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: [
-        'admin@lorax.com',
+        '',
         [Validators.required, Validators.email, Validators.minLength(5)]
       ],
-      password: ['admin', Validators.required]
+      password: ['', Validators.required]
     });
   }
+  
   get f() {
     return this.loginForm.controls;
   }
+
+  
+
   onSubmit() {
     this.submitted = true;
     this.error = '';
     if (this.loginForm.invalid) {
-      this.error = 'Username and Password not valid !';
+      this.error = 'Usuário e senha inválidos !';
       return;
     } else {
-      this.subs.sink = this.authService
+       this.loginService
         .login(this.f.email.value, this.f.password.value)
         .subscribe(
-          (res) => {
-            if (res) {
-              const token = this.authService.currentUserValue.token;
-              if (token) {
-                this.router.navigate(['/dashboard/main']);
-              }
+          (result) => {
+            if (result['success']) {
+              
+              localStorage.setItem("usuario_logado", JSON.stringify(result['data']));
+              this.router.navigate(['/dashboard/main']); 
+              this.submitted = false;
             } else {
               this.error = 'Invalid Login';
+              this.submitted = false;
             }
-          },
-          (error) => {
-            this.error = error;
-            this.submitted = false;
-          }
-        );
+          });
     }
   }
 }

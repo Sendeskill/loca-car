@@ -12,6 +12,7 @@ namespace Dominio.Commands.Contrato
             Requires().IsNotNull(command.VeiculoId, "VeiculoId", "VeiculoId é obrigatório");
             Requires().IsNotNull(command.DataLocacao, "Data Locação", "Data Locação é obrigatório");
             Requires().IsNotNull(command.DataDevolucao, "Data Devolução", "Data Devolução é obrigatório");
+            Requires().IsNotNull(command.Status, "Status", "Status é obrigatório");
         }
     }
 }

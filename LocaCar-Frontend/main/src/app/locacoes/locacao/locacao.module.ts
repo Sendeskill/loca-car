@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -46,7 +47,8 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     MatSortModule,
     MatToolbarModule,
     MaterialFileInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule
   ]
 })
 export class LocacaoModule { }
