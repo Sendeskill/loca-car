@@ -1,3 +1,4 @@
+<!-- <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar> -->
 <section class="content">
   <div class="container-fluid">
     <div class="block-header">
@@ -20,8 +21,8 @@
     <div class="row" >
       <div class="col-lg-4 col-sm-12">
         <div class="counter-box text-center">
-          <div class="text font-17 m-b-40 m-t-15"><h2 style="color: #5653ED;"><strong>Solicitações de Locação</strong></h2></div>
-          <div class="row">
+          <div  *ngIf="usuarioLogado.tipo == 1" class="text font-17 m-b-40 m-t-15"><h2 style="color: #5653ED;"><strong>Solicitações de Locação</strong></h2></div>
+          <div  *ngIf="usuarioLogado.tipo == 1" class="row">
             <div class="col-lg-4">
               <div class="text font-20 m-b-5" style="color: #949494;">Total</div>
               <h3 class="m-b-10" style="color: #5653ED;">150
@@ -47,15 +48,15 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-sm-12" layout="column">
+      <div class="col-lg-4 col-sm-12"  *ngIf="usuarioLogado.tipo == 1" layout="column">
         <div class="counter-box text-center">
           <app-status-veiculos-chart></app-status-veiculos-chart>
         </div>
       </div>
       <div class="col-lg-4 col-sm-12">
         <div class="counter-box text-center">
-          <div class="text font-17 m-b-40 m-t-15"><h2 style="color: #5653ED;"><strong>Veículos</strong></h2></div>
-          <div class="row">
+          <div class="text font-17 m-b-40 m-t-15"  *ngIf="usuarioLogado.tipo == 1"><h2 style="color: #5653ED;"><strong>Veículos</strong></h2></div>
+          <div class="row"  *ngIf="usuarioLogado.tipo == 1">
             <div class="col-lg-6">
               <div class="text font-20 m-b-5" style="color: #949494;">Em Locação</div>
               <h3 class="m-b-10" style="color: #5653ED;">30

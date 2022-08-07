@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-veiculos-disponiveis',
@@ -14,9 +16,13 @@ export class VeiculosDisponiveisComponent implements OnInit {
     { cor: 'Azul', placa: 'EOZ-2332', veiculo: 'Onix LTZ' },
   ];
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
+  usuarioLogado: Usuario;
   ngOnInit(): void {
+    this.usuarioLogado = this.authService.currentUserValue;
   }
 
 }
