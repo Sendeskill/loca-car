@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { StatusVeiculoEnum } from 'src/app/models/enums/status-veiculo-enum';
 import { Veiculo } from 'src/app/models/veiculo.model';
 import Swal from 'sweetalert2';
 import { VeiculoService } from '../services/veiculo.service';
@@ -71,7 +72,7 @@ export class CadastroVeiculoComponent implements OnInit {
     this.veiculo.marca = this.register.value['marca'];
     this.veiculo.descricao = this.register.value['descricao'];
     this.veiculo.observacao = this.register.value['observacao'];
-    this.veiculo.status = 1;
+    this.veiculo.status = StatusVeiculoEnum.alocado;
 
     this.veiculoService.saveVeiculo(this.veiculo)
         .subscribe((result) => {

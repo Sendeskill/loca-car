@@ -52,8 +52,10 @@ export class SolicitacoesPendentesComponent implements OnInit {
       if(this.usuarioLogado.tipo == 1) {
 
         this.locacoes = result.locacoes.filter((f) => f.status == StatusLocacaoEnum.pendente).slice(0,5);
+      } else {
+        this.locacoes = result.locacoes.filter((f) => f.usuarioId == this.usuarioLogado.id).slice(0,5);
       }
-      this.locacoes = result.locacoes.filter((f) => f.usuarioId == this.usuarioLogado.id).slice(0,5);
+      
       this.usuarios = result.usuarios;
       this.veiculos = result.veiculos;
       this.loading = false;

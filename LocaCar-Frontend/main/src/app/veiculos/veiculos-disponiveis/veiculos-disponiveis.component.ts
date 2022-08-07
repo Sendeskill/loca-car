@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { StatusVeiculoEnum } from 'src/app/models/enums/status-veiculo-enum';
 import { Veiculo } from 'src/app/models/veiculo.model';
 import Swal from 'sweetalert2';
 import { VeiculoService } from '../services/veiculo.service';
@@ -142,7 +143,7 @@ export class VeiculosDisponiveisComponent implements OnInit {
     this.loading = true;
     this.veiculoService.getVeiculos()
         .subscribe((result) => {
-          this.dataSource2 = new MatTableDataSource<Veiculo>(result);
+          this.dataSource2 = new MatTableDataSource<Veiculo>(result.filter((f) => f.status == StatusVeiculoEnum.disponivel));
           this.loading = false;
         });
   }
