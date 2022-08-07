@@ -3,16 +3,16 @@
       <div class="card">
         <div>
           <h3 style="color: #5653ED;">
-            <strong>Veículos Disponíveis</strong>
+            <strong>{{usuarioLogado.tipo == 1 ?  'Veículos Disponíveis' : 'Minhas Solicitacoes'}}</strong>
           </h3>
         </div>
         <div class="body table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Veículo</th>    
-                <th>Placa</th>
-                <th>Cor</th>
+                <th>{{usuarioLogado.tipo == 1 ? 'Veículo' : 'Data Solicitação'}}</th>    
+                <th>{{usuarioLogado.tipo == 1 ? 'Placa' : 'Status'}}</th>
+                <th>{{usuarioLogado.tipo == 1 ? 'Cor' : 'Veículo'}}</th>
               </tr>
             </thead>
             <tbody>

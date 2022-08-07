@@ -16,6 +16,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { SolicitacoesPendentesComponent } from './main/components/solicitacoes-pendentes/solicitacoes-pendentes.component';
 import { StatusVeiculosChartComponent } from './main/components/status-veiculos-chart/status-veiculos-chart.component';
 import { VeiculosDisponiveisComponent } from './main/components/veiculos-disponiveis/veiculos-disponiveis.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { VeiculosDisponiveisComponent } from './main/components/veiculos-disponi
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     }),
-    GaugeModule.forRoot()
+    GaugeModule.forRoot(),
+    MatProgressBarModule
   ]
 })
 export class DashboardModule {}

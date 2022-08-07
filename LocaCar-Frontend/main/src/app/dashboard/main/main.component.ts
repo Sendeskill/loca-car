@@ -13,6 +13,8 @@ import {
   ChartComponent,
   ApexFill
 } from 'ng-apexcharts';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { Usuario } from 'src/app/models/usuario.model';
 
 export type smallBarChart = {
   series: ApexAxisChartSeries;
@@ -70,7 +72,12 @@ export class MainComponent implements OnInit {
   public sampleData = [
     31, 40, 28, 44, 60, 55, 68, 51, 42, 85, 77, 31, 40, 28, 44, 60, 55
   ];
-  constructor() {}
+  constructor(private authService: AuthService) {
+    
+  }
+
+  usuarioLogado: Usuario;
+  loading: boolean = false;
 
   ngOnInit() {
     this.cardChart1();
@@ -79,7 +86,14 @@ export class MainComponent implements OnInit {
     this.cardChart4();
     this.chart1();
     this.chart2();
+    this.usuarioLogado = this.authService.currentUserValue;
+    
   }
+
+  loadData($event) {
+    this.loading = $event;
+  }
+
   private cardChart1() {
     this.smallBarChart = {
       chart: {

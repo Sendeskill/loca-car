@@ -1,9 +1,10 @@
+
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="card">
         <div>
           <h3 style="color: #5653ED;">
-            <strong>Solicitações Pendentes</strong>
+            <strong>{{usuarioLogado.tipo == 1 ? 'Solicitações Pendentes' : 'Histórico de locações'}}</strong>
           </h3>
         </div>
         <div class="body table-responsive">
@@ -16,10 +17,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of solicitacoesPendentes">
-                <th scope="row">{{item.data | date : 'dd/MM/yyyy'}}</th>
-                <td>{{item.solicitante}}</td>
-                <td>{{item.veiculo}}</td>
+              <tr *ngFor="let item of locacoes">
+                <th scope="row">{{item.dataLocacao | date : 'dd/MM/yyyy'}}</th>
+                <td>{{getUsuarioLocacao(item.usuarioId)}}</td>
+                <td>{{ getVeiculoLocacao(item.veiculoId).modelo}}</td>
               </tr>
             </tbody>
           </table>
