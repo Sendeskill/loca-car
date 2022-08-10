@@ -55,7 +55,7 @@ export class SigninComponent
             if (result['success']) {
               
               localStorage.setItem("usuario_logado", JSON.stringify(result['data']));
-              this.router.navigate(['/dashboard/main']); 
+              this.router.navigate(['dashboard/main']); 
               this.submitted = false;
             } else {
               this.error = 'Invalid Login';
